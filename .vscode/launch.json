@@ -3,6 +3,33 @@
     {
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
+        "name": "posts server",
+        "program": "${workspaceFolder}/posts/index.js",
+        "request": "launch",
+        "restart": true,
+        "runtimeExecutable": "/home/growlytics/.nvm/versions/node/v12.22.12/bin/node",
+        "skipFiles": [
+            // "<node_internals>/**"
+        ],
+        "type": "node"
+    },
+    {
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "name": "comments server",
+        "program": "${workspaceFolder}/comments/index.js",
+        "request": "launch",
+        "restart": true,
+        "runtimeExecutable": "/home/growlytics/.nvm/versions/node/v12.22.12/bin/node",
+        "skipFiles": [
+            // "<node_internals>/**"
+        ],
+        "type": "node"
+    },
+
+    {
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
         "name": "posts nodemon",
         "program": "${workspaceFolder}/posts/index.js",
         "request": "launch",
@@ -17,6 +44,20 @@
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
         "name": "comments nodemon",
+        "program": "${workspaceFolder}/comments/index.js",
+        "request": "launch",
+        "restart": true,
+        "runtimeExecutable": "${workspaceFolder}/comments/node_modules/nodemon/bin/nodemon.js",
+        "skipFiles": [
+            // "<node_internals>/**"
+        ],
+        "type": "node"
+    },
+
+    {
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "name": "client app",
         "program": "${workspaceFolder}/comments/index.js",
         "request": "launch",
         "restart": true,

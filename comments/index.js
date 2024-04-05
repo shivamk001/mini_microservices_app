@@ -1,23 +1,27 @@
 const express=require('express');
 const bodyParser=require('body-parser')
 const { randomBytes }=require('crypto');
+const cors=require('cors');
 
 const app=express();
 app.use(bodyParser.json());
+app.use(cors());
 
 const commentsByPostId={}; 
 
 app.get('/posts/:id/comments', (req, res)=>{
+    console.log(commentsByPostId)
+    console.log(req.params.id)
     res.send(commentsByPostId[req.params.id]||[]);//if no comment exists for the post
 });
 
 app.post('/posts/:id/comments', (req, res)=>{
     const commentId=randomBytes(4).toString('hex');
-    const {content}=req.body;
+    const {comment}=req.body;
 
     const comments=commentsByPostId[req.params.id] || [];//if no comment exists for the post
     
-    comments.push({id: commentId, content});
+    comments.push({id: commentId, comment});
 
     commentsByPostId[req.params.id]=comments;
     

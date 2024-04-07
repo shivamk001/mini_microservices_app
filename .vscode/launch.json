@@ -30,6 +30,33 @@
     {
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
+        "name": "eventBus server",
+        "program": "${workspaceFolder}/event-bus/index.js",
+        "request": "launch",
+        "restart": true,
+        "runtimeExecutable": "/home/growlytics/.nvm/versions/node/v12.22.12/bin/node",
+        "skipFiles": [
+            // "<node_internals>/**"
+        ],
+        "type": "node"
+    },
+    {
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "name": "query server",
+        "program": "${workspaceFolder}/query/index.js",
+        "request": "launch",
+        "restart": true,
+        "runtimeExecutable": "/home/growlytics/.nvm/versions/node/v12.22.12/bin/node",
+        "skipFiles": [
+            // "<node_internals>/**"
+        ],
+        "type": "node"
+    },
+
+    {
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
         "name": "posts nodemon",
         "program": "${workspaceFolder}/posts/index.js",
         "request": "launch",

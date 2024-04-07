@@ -2,22 +2,16 @@ const express=require('express');
 const bodyParser=require('body-parser')
 // const { randomBytes }=require('crypto');
 const cors=require('cors');
-// const axios=require('axios');
+const axios=require('axios');
 
 
 const app=express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const posts={}
+const posts={};
 
-app.get('/posts', (req, res)=>{
-    res.send(posts);
-})
-
-app.post('/events', (req, res)=>{
-    const {type, data}=req.body;
-    console.log('Events Received:', type);
+const handleEvents=(type, data)=>{
     if(type==='PostCreated'){
         const {id, title}=data;
         posts[id]={id, title, comments: []};
@@ -41,12 +35,28 @@ app.post('/events', (req, res)=>{
         comment['content']=content;
         console.log('COMMENT UPDATED:', comment);
     }
-    for(const {key, value} in posts){
-        console.log(value)
-    }
+}
+
+app.get('/posts', (req, res)=>{
+    res.send(posts);
+})
+
+app.post('/events', (req, res)=>{
+    const {type, data}=req.body;
+    console.log('Events Received:', type);
+
+    handleEvents(type, data);
+
     res.send({});
 })
 
-app.listen(4002, ()=>{
-    console.log('LISTENING ON 4002: QUERY')
+app.listen(4002, async ()=>{
+    console.log('LISTENING ON 4002: QUERY');
+
+    const res=await axios.get('http://localhost:4005/events');
+
+    for(let event of res.data){
+        console.log('Processing event:', event.type);
+        handleEvents(event.type, event.data);
+    }
 })

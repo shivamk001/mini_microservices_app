@@ -14,7 +14,15 @@ const CommentList=({ comments })=>{
     // },  []);
 
     const renderedComments=comments.map(comment=>{
-        return <li key={comment.id}>{comment.comment}</li>
+        let content;
+
+        if(comment.status==='approved')
+            content=comment.content;
+        else if(comment.status==='pending')
+            content='Awaitng Moderation';
+        else if(comment.status==='rejected')
+            content='Comment Rejected'
+        return <li key={comment.id}>{content}</li>
     })
     return (<ul>
         {renderedComments}

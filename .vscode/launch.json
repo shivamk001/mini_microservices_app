@@ -3,7 +3,7 @@
     {
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
-        "name": "posts server",
+        "name": "posts service",
         "program": "${workspaceFolder}/posts/index.js",
         "request": "launch",
         "restart": true,
@@ -16,7 +16,7 @@
     {
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
-        "name": "comments server",
+        "name": "comments service",
         "program": "${workspaceFolder}/comments/index.js",
         "request": "launch",
         "restart": true,
@@ -26,11 +26,10 @@
         ],
         "type": "node"
     },
-
     {
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
-        "name": "eventBus server",
+        "name": "eventBus service",
         "program": "${workspaceFolder}/event-bus/index.js",
         "request": "launch",
         "restart": true,
@@ -43,7 +42,7 @@
     {
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
-        "name": "query server",
+        "name": "query service",
         "program": "${workspaceFolder}/query/index.js",
         "request": "launch",
         "restart": true,
@@ -53,46 +52,59 @@
         ],
         "type": "node"
     },
-
     {
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
-        "name": "posts nodemon",
-        "program": "${workspaceFolder}/posts/index.js",
+        "name": "moderation service",
+        "program": "${workspaceFolder}/moderation/index.js",
         "request": "launch",
         "restart": true,
-        "runtimeExecutable": "${workspaceFolder}/posts/node_modules/nodemon/bin/nodemon.js",
-        "skipFiles": [
-            // "<node_internals>/**"
-        ],
-        "type": "node"
-    },
-    {
-        "console": "integratedTerminal",
-        "internalConsoleOptions": "neverOpen",
-        "name": "comments nodemon",
-        "program": "${workspaceFolder}/comments/index.js",
-        "request": "launch",
-        "restart": true,
-        "runtimeExecutable": "${workspaceFolder}/comments/node_modules/nodemon/bin/nodemon.js",
+        "runtimeExecutable": "/home/growlytics/.nvm/versions/node/v12.22.12/bin/node",
         "skipFiles": [
             // "<node_internals>/**"
         ],
         "type": "node"
     },
 
-    {
-        "console": "integratedTerminal",
-        "internalConsoleOptions": "neverOpen",
-        "name": "client app",
-        "program": "${workspaceFolder}/comments/index.js",
-        "request": "launch",
-        "restart": true,
-        "runtimeExecutable": "${workspaceFolder}/comments/node_modules/nodemon/bin/nodemon.js",
-        "skipFiles": [
-            // "<node_internals>/**"
-        ],
-        "type": "node"
-    }
+//     {
+//         "console": "integratedTerminal",
+//         "internalConsoleOptions": "neverOpen",
+//         "name": "posts nodemon",
+//         "program": "${workspaceFolder}/posts/index.js",
+//         "request": "launch",
+//         "restart": true,
+//         "runtimeExecutable": "${workspaceFolder}/posts/node_modules/nodemon/bin/nodemon.js",
+//         "skipFiles": [
+//             // "<node_internals>/**"
+//         ],
+//         "type": "node"
+//     },
+//     {
+//         "console": "integratedTerminal",
+//         "internalConsoleOptions": "neverOpen",
+//         "name": "comments nodemon",
+//         "program": "${workspaceFolder}/comments/index.js",
+//         "request": "launch",
+//         "restart": true,
+//         "runtimeExecutable": "${workspaceFolder}/comments/node_modules/nodemon/bin/nodemon.js",
+//         "skipFiles": [
+//             // "<node_internals>/**"
+//         ],
+//         "type": "node"
+//     },
+
+//     {
+//         "console": "integratedTerminal",
+//         "internalConsoleOptions": "neverOpen",
+//         "name": "client app",
+//         "program": "${workspaceFolder}/comments/index.js",
+//         "request": "launch",
+//         "restart": true,
+//         "runtimeExecutable": "${workspaceFolder}/comments/node_modules/nodemon/bin/nodemon.js",
+//         "skipFiles": [
+//             // "<node_internals>/**"
+//         ],
+//         "type": "node"
+//     }
     ]
 }

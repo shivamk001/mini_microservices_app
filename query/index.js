@@ -17,22 +17,36 @@ app.get('/posts', (req, res)=>{
 
 app.post('/events', (req, res)=>{
     const {type, data}=req.body;
-
+    console.log('Events Received:', type);
     if(type==='PostCreated'){
         const {id, title}=data;
         posts[id]={id, title, comments: []};
     }
 
     if(type==='CommentCreated'){
-        const {id, comment, postId}=data;
-        console.log(id,comment, postId);
+        const {id, content, postId, status}=data;
+        console.log(id, content, postId, status);
         const post=posts[postId];
-        post.comments.push({id, comment});
+        post.comments.push({id, content, status}); 
     }
-    console.log(posts)
+
+    if(type==='CommentUpdated'){
+        const {id, content, postId, status}=data;
+
+        const post=posts[postId];
+        const comment=post.comments.find(comment=>{
+            return comment.id===id;
+        });
+        comment['status']=status;
+        comment['content']=content;
+        console.log('COMMENT UPDATED:', comment);
+    }
+    for(const {key, value} in posts){
+        console.log(value)
+    }
     res.send({});
 })
 
 app.listen(4002, ()=>{
-    console.log('LISTENING ON 4002')
+    console.log('LISTENING ON 4002: QUERY')
 })

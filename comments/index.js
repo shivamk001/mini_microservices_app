@@ -30,7 +30,7 @@ app.post('/posts/:id/comments', async (req, res)=>{
         commentsByPostId[req.params.id]=comments;
         console.log('COMMENT CREATED:', commentId, content, comments);
         // to event-bus
-        await axios.post('http://localhost:4005/events', {
+        await axios.post('http://event-bus-srv:4005/events', {
             type: 'CommentCreated',
             data:{
                 id: commentId, 
@@ -64,7 +64,7 @@ app.post('/events', async (req, res)=>{
         requiredComment.status=status;
         // dont need to insert the comment inside comments
 
-        await axios.post('http://localhost:4005/events',{
+        await axios.post('http://event-bus-srv:4005/events',{
             type:'CommentUpdated',
             data:{
                 id,
